@@ -1,25 +1,10 @@
 package problems.algo;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 public class BalloonProblem {
-
-    public static void main(String[] args) {
-
-        int[] arr1 = { 5, 4, 3, 3, 2, 2, 1, 1, 1 };
-        int[] arr2 = { 5, 4, 2, 1 };
-        int[] arr3 = {9,8, 6, 4, 2, 1};
-        int[] arr4 = {9,8, 6, 6, 6, 6, 4, 2,1,0};
-
-        System.out.println(findSol(arr1));
-        System.out.println(findSol(arr2));
-        System.out.println(findSol(arr3));
-        System.out.println(findSol(arr4));
-
-        System.out.println(findSol1(arr1));
-        System.out.println(findSol1(arr2));
-        System.out.println(findSol1(arr3));
-        System.out.println(findSol(arr4));
-
-    }
 
     private static int findSol1(int[] arr) {
         int seq = 0, same = 0;
@@ -34,27 +19,7 @@ public class BalloonProblem {
         return seq + same -1;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private static int findSol(int[] arr) {
+    private static int findSol(int[] arr) {
 
         if (arr.length == 0)
             return 0;
@@ -79,5 +44,33 @@ public class BalloonProblem {
         // combine both break in sequence and same numbers.
         return (seq + prev);
 
+    }
+
+    @Test
+    public void test1() {
+        int[] arr1 = { 5, 4, 3, 3, 2, 2, 1, 1, 1 };
+
+        assertEquals(3, findSol(arr1));
+    }
+
+    @Test
+    public void test2() {
+        int[] arr2 = { 5, 4, 2, 1 };
+
+        assertEquals(2, findSol1(arr2));
+    }
+
+    @Test
+    public void test3() {
+        int[] arr3 = {9,8, 6, 4, 2, 1};
+
+        assertEquals(4, findSol(arr3));
+    }
+
+    @Test
+    public void test4() {
+        int[] arr4 = {9,8, 6, 6, 6, 6, 4, 2,1,0};
+
+        assertEquals(7, findSol(arr4));
     }
 }
