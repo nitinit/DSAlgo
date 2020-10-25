@@ -1,4 +1,4 @@
-package ds.algo;
+package problems.ds;
 
 import javafx.util.Pair;
 

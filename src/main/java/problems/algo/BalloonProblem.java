@@ -1,4 +1,4 @@
-package ds.algo;
+package problems.algo;
 
 public class BalloonProblem {
 

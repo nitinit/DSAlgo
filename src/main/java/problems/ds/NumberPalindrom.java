@@ -1,4 +1,4 @@
-package ds.algo;
+package problems.ds;
 
 public class NumberPalindrom {
     public static boolean isPalindrom(int x) {

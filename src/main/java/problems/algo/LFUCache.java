@@ -1,4 +1,4 @@
-package ds.algo;
+package problems.algo;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
