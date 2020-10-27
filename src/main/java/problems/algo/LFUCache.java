@@ -5,115 +5,117 @@ import java.util.Map;
 
 public class LFUCache {
 
-	class CacheEntry {
-		private int data;
-		private int frequency;
+    class CacheEntry {
+        private int data;
+        private int frequency;
 
-		// default constructor
-		private CacheEntry() {
-		}
+        // default constructor
+        private CacheEntry() {
+        }
 
-		public int getData() {
-			return data;
-		}
+        public int getData() {
+            return data;
+        }
 
-		public void setData(int data) {
-			this.data = data;
-		}
+        public void setData(int data) {
+            this.data = data;
+        }
 
-		public int getFrequency() {
-			return frequency;
-		}
+        public int getFrequency() {
+            return frequency;
+        }
 
-		public void setFrequency(int frequency) {
-			this.frequency = frequency;
-		}
-	}
-	private static int initialCapacity = 10;
-	private static LinkedHashMap<Integer, CacheEntry> cacheMap = new LinkedHashMap<Integer, CacheEntry>();
-	/*
-	 * LinkedHashMap is used because it has features of both HashMap and LinkedList.
-	 * Thus, we can get an entry in O(1) and also, we can iterate over it easily.
-	 */
-	public LFUCache(int initialCapacity) {
-		this.initialCapacity = initialCapacity;
-	}
+        public void setFrequency(int frequency) {
+            this.frequency = frequency;
+        }
+    }
 
-	public void put(int key, int data) {
-		if (!isFull()) {
-			CacheEntry temp = new CacheEntry();
-			temp.setData(data);
-			temp.setFrequency(0);
+    private static int initialCapacity = 10;
+    private static LinkedHashMap<Integer, CacheEntry> cacheMap = new LinkedHashMap<Integer, CacheEntry>();
 
-			cacheMap.put(key, temp);
-		} else {
-			int entryKeyToBeRemoved = getLFUKey();
-			cacheMap.remove(entryKeyToBeRemoved);
+    /*
+     * LinkedHashMap is used because it has features of both HashMap and LinkedList.
+     * Thus, we can get an entry in O(1) and also, we can iterate over it easily.
+     */
+    public LFUCache(int initialCapacity) {
+        this.initialCapacity = initialCapacity;
+    }
 
-			CacheEntry temp = new CacheEntry();
-			temp.setData(data);
-			temp.setFrequency(0);
+    public void put(int key, int data) {
+        if (!isFull()) {
+            CacheEntry temp = new CacheEntry();
+            temp.setData(data);
+            temp.setFrequency(0);
 
-			cacheMap.put(key, temp);
-		}
-	}
+            cacheMap.put(key, temp);
+        } else {
+            int entryKeyToBeRemoved = getLFUKey();
+            cacheMap.remove(entryKeyToBeRemoved);
 
-	public int getLFUKey() {
-		int key = 0;
-		int minFreq = Integer.MAX_VALUE;
+            CacheEntry temp = new CacheEntry();
+            temp.setData(data);
+            temp.setFrequency(0);
 
-		for (Map.Entry<Integer, CacheEntry> entry : cacheMap.entrySet()) {
-			if (minFreq > entry.getValue().frequency) {
-				key = entry.getKey();
-				minFreq = entry.getValue().frequency;
-			}
-		}
-		return key;
-	}
+            cacheMap.put(key, temp);
+        }
+    }
 
-	public int get(int key) {
-		if (cacheMap.containsKey(key)) // cache hit
-		{
-			CacheEntry temp = cacheMap.get(key);
-			temp.frequency++;
-			cacheMap.put(key, temp);
-			return temp.data;
-		}
-		return -1; // cache miss
-	}
+    public int getLFUKey() {
+        int key = 0;
+        int minFreq = Integer.MAX_VALUE;
 
-	public static boolean isFull() {
-		if (cacheMap.size() == initialCapacity)
-			return true;
+        for (Map.Entry<Integer, CacheEntry> entry : cacheMap.entrySet()) {
+            if (minFreq > entry.getValue().frequency) {
+                key = entry.getKey();
+                minFreq = entry.getValue().frequency;
+            }
+        }
+        return key;
+    }
 
-		return false;
-	}
+    public int get(int key) {
+        if (cacheMap.containsKey(key)) // cache hit
+        {
+            CacheEntry temp = cacheMap.get(key);
+            temp.frequency++;
+            cacheMap.put(key, temp);
+            return temp.data;
+        }
+        return -1; // cache miss
+    }
 
-	// display contents of cache
-	public void display() {
-		for (Map.Entry<Integer, CacheEntry> entry : cacheMap.entrySet()) {
-			System.out.print(entry.getKey() + " ");
-		}
-	}
+    public static boolean isFull() {
+        if (cacheMap.size() == initialCapacity)
+            return true;
 
-	public static void main(String[] args) throws java.lang.Exception {
-		LFUCache cache = new LFUCache(4);
-		cache.put(1, 1);
-		cache.put(2, 2);
-		cache.put(3, 3);
-		cache.get(1);
-		cache.get(2);
-		cache.get(3);
-		cache.put(4, 4);
-		cache.put(5, 5);
-		cache.put(6, 6);
-		cache.get(3);
-		cache.put(7, 7);
-		cache.get(6);
-		cache.get(1);
+        return false;
+    }
 
-		System.out.println(cache.get(1));
-		cache.display();
+    // display contents of cache
+    public void display() {
+        for (Map.Entry<Integer, CacheEntry> entry : cacheMap.entrySet()) {
+            System.out.print(entry.getKey() + " ");
+        }
+    }
 
-	}
+    public static void main(String[] args) throws java.lang.Exception {
+        LFUCache cache = new LFUCache(4);
+        cache.put(1, 1);
+        cache.put(2, 2);
+        cache.put(3, 3);
+        cache.get(1);
+        cache.get(2);
+        cache.get(3);
+        cache.put(4, 4);
+        cache.put(5, 5);
+        cache.put(6, 6);
+        cache.get(3);
+        cache.put(7, 7);
+        cache.get(6);
+        cache.get(1);
+
+        System.out.println(cache.get(1));
+        cache.display();
+
+    }
 }
