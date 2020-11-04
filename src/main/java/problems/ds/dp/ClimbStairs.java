@@ -40,12 +40,31 @@ public class ClimbStairs {
         }
         return dp[stairsCnt - 1];
     }
+    public void printStairPath(int stairsCnt, String stairsPath) {
+        if(stairsCnt < 0) {
+            return;
+        }
+        if(stairsCnt == 0) {
+            System.out.println(stairsPath);
+            return;
+        }
+
+        printStairPath(stairsCnt-1, stairsPath + "1");
+        printStairPath(stairsCnt-2, stairsPath + "2");
+        printStairPath(stairsCnt-3, stairsPath + "3");
+    }
 
     @Test
     public void test1() {
         assertEquals(5, climbStairsWith2Steps(4));
         assertEquals(5, climbStairsMSteps(5, 2));
         assertEquals(5, climbStairsMStepsDP(5, 2));
+
+    }
+
+    @Test
+    public void test2() {
+        printStairPath(4, "");
 
     }
 }
