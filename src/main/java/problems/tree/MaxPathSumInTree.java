@@ -12,13 +12,14 @@ public class MaxPathSumInTree {
         int leftSum = findMaxPathSum(tree.left, result);
         int rightSum = findMaxPathSum(tree.right, result);
 
+        System.out.println(leftSum + ":" + rightSum);
         if (leftSum + rightSum + tree.data > result.data) {
             result.data = leftSum + rightSum + tree.data;
         }
         if (leftSum > rightSum) {
-            return leftSum + tree.data;
+            return tree.data + leftSum > 0 ? tree.data + leftSum : 0;
         } else {
-            return rightSum + tree.data;
+            return rightSum + tree.data > 0 ? rightSum + tree.data : 0;
         }
     }
 
@@ -36,12 +37,12 @@ public class MaxPathSumInTree {
 
     @Test
     public void edgeTest() {
-        Node node4 = new Node(-2);
+        Node node4 = new Node(2);
         Node node5 = new Node(-1);
         node4.left = node5;
         Result result = new Result();
         findMaxPathSum(node4, result);
-        assertEquals(-1, result.data);
+        assertEquals(2, result.data);
     }
 
     @Test

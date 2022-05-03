@@ -46,11 +46,11 @@ public class StringParanthesesChecker {
 //
 //		System.out.println("Example-3" + paranthesesChecker.isValidParantheses("(]"));
 //
-//		System.out.println("Example-4" + paranthesesChecker.isValidParantheses("([)]"));
+		System.out.println("Example-4" + paranthesesChecker.isValidParantheses("([)]"));
 //
-//		System.out.println("Example-5" + paranthesesChecker.isValidParantheses("{[]}"));
+		System.out.println("Example-5" + paranthesesChecker.isValidParantheses("{[]}"));
 
-		System.out.println(paranthesesChecker.toVersionList(" 12, 4 5"));
+		//System.out.println(paranthesesChecker.toVersionList(" 12, 4 5"));
 
 	}
 }

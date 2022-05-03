@@ -41,10 +41,10 @@ public class MeetingRoom {
         return list;
     }
 
-    int getMaximumMeetings(List<Integer> start, List<Integer> timeTaken) {
+    int getMaximumMeetings(List<Integer> startTime, List<Integer> finishTime) {
         List<Interval> list = new ArrayList<>(); // create a List of Interval
-        for (int i = 0; i < start.size(); i++) {
-            list.add(new Interval(start.get(i), timeTaken.get(i)));
+        for (int i = 0; i < startTime.size(); i++) {
+            list.add(new Interval(startTime.get(i), finishTime.get(i)));
         }
         list.sort(Comparator.comparingInt(i -> i.end)); // sort by finish times ascending
 

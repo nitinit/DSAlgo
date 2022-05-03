@@ -78,7 +78,6 @@ public class LRUCacheMap {
 				// remove last node
 				delete(end);
 				setHead(newNode);
-
 			} else {
 				setHead(newNode);
 			}
