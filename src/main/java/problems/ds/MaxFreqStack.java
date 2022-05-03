@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-class FreqStack {
+class MaxFreqStack {
     Map<Integer, Integer> freq;
     Map<Integer, Stack<Integer>> group;
     int maxfreq;
 
-    public FreqStack() {
+    public MaxFreqStack() {
         freq = new HashMap();
         group = new HashMap();
         maxfreq = 0;
@@ -30,5 +30,25 @@ class FreqStack {
         if (group.get(maxfreq).size() == 0)
             maxfreq--;
         return x;
+    }
+
+    public static void main(String args[]) {
+        MaxFreqStack freqStack = new MaxFreqStack();
+        freqStack.push(5);
+        freqStack.push(7);
+        freqStack.push(5);
+        freqStack.push(7);
+        freqStack.push(4);
+        freqStack.push(5);
+        System.out.println(freqStack.pop());
+        System.out.println(freqStack.pop());
+        System.out.println(freqStack.pop());
+        System.out.println(freqStack.pop());
+        System.out.println(freqStack.pop());
+        System.out.println(freqStack.pop());
+
+
+
+
     }
 }
