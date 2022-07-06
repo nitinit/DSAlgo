@@ -43,7 +43,6 @@ public class SlidingWindowMax {
         // i.e., from arr[k] to arr[n-1]
         for (; i < n; ++i)
         {
-
             // The element at the front of the
             // queue is the largest element of
             // previous window, so print it

@@ -1,4 +1,4 @@
-package problems.algo;
+package problems.algo.tricky;
 
 import java.util.ArrayList;
 import java.util.Arrays;

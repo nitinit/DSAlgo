@@ -87,5 +87,7 @@ public class CoinChange {
         result1 = new ArrayList<>();
         tmp = new ArrayList<>();
         coinChangeCombinations(0, elements, 0, 8, result1, tmp);
+        System.out.println(result1);
+
     }
 }

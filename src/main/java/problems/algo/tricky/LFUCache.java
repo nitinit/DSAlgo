@@ -1,4 +1,4 @@
-package problems.algo;
+package problems.algo.tricky;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
