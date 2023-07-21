@@ -1,4 +1,4 @@
-package problems.algo.tricky;
+package problems.design.tricky;
 
 import java.util.Deque;
 import java.util.HashMap;

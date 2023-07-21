@@ -1,4 +1,4 @@
-package problems.algo.tricky;
+package problems.design.tricky;
 
 /*
    Design a hit counter which counts the number of hits received in the past 5 minutes (i.e., the past 300 seconds).

@@ -1,4 +1,4 @@
-package problems.algo.lld.models;
+package problems.design.lld.models;
 
 import java.util.LinkedList;
 

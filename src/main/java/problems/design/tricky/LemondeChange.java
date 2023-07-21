@@ -1,4 +1,4 @@
-package problems.algo.tricky;
+package problems.design.tricky;
 
 /*
 there is a queue of customers. They want to buy lemonade from us which costs 5 rupees.

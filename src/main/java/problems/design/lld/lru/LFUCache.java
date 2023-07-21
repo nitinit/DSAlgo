@@ -1,8 +1,8 @@
-package problems.algo.lld.lru;
+package problems.design.lld.lru;
 
-import problems.algo.lld.models.Cache;
-import problems.algo.lld.models.CacheElement;
-import problems.algo.lld.models.DoublyLinkedList;
+import problems.design.lld.models.Cache;
+import problems.design.lld.models.CacheElement;
+import problems.design.lld.models.DoublyLinkedList;
 
 import java.util.Map;
 import java.util.Optional;

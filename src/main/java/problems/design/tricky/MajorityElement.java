@@ -1,4 +1,4 @@
-package problems.algo.tricky;
+package problems.design.tricky;
 
 /*
 We are given an array of integers. We need to return the integer which occurs more than ⌊N / 2⌋ time

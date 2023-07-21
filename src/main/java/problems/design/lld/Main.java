@@ -1,8 +1,8 @@
-package problems.algo.lld;
+package problems.design.lld;
 
-import problems.algo.lld.lru.LFUCache;
-import problems.algo.lld.lru.LRUCache;
-import problems.algo.lld.models.Cache;
+import problems.design.lld.lru.LFUCache;
+import problems.design.lld.lru.LRUCache;
+import problems.design.lld.models.Cache;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package problems.algo.tricky;
+package problems.design.tricky;
 
 /*
 “Arranging Coins” asks you to build a staircase with these coins.
