@@ -30,7 +30,6 @@ public class MinTapsToWaterGarden {
             tapCount++;
             endAt=maxEndAt;
         }
-
         return tapCount;
     }
 
@@ -44,7 +43,6 @@ public class MinTapsToWaterGarden {
                 }
             }
             if(min == max) return -1;
-            System.out.println("max:"+max);
             open++;
             min = max;
         }
